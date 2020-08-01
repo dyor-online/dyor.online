@@ -50,6 +50,7 @@ function init() {
     }
 
     document.body.appendChild( renderer.domElement );
+    
     /**/
     heightOutput = document.querySelector('#height');
     widthOutput = document.querySelector('#width');

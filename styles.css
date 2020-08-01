@@ -1,14 +1,14 @@
 body {
   height: 100%;
   margin: 0;
-  max-width: 100%;/*prevent scroll horizontall*/
-  -webkit-text-size-adjust: 100%; //fix iOS first loading with bigger fonts
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .left{
     position: fixed;
     display: block;
-    top:15px;
-    left:10px;
-    width: 50px;
+    top:20px;
+    left:23px;
+    width: 35px;
 }
