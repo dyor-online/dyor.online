@@ -48,8 +48,8 @@ function init() {
         scene.add(particle);
         smokeParticles.push(particle);
     }
-    body = document.querySelector('#height');
-    document.body.appendChild( '#body' );
+    body = document.querySelector('#body');
+    document.body.appendChild(body);
     /**/
     heightOutput = document.querySelector('#height');
     widthOutput = document.querySelector('#width');
