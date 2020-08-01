@@ -1,14 +1,14 @@
-body{
-    background-color: aquamarine;
+body {
+  height: 100%;
+  margin: 0;
+  max-width: 100%;/*prevent scroll horizontall*/
+  -webkit-text-size-adjust: 100%; //fix iOS first loading with bigger fonts
 }
-h1{
-    color: black;
-    font-family: "Comic Sans MS";
-    font-size: larger;
-}
-.center{
+
+.left{
+    position: fixed;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    top:15px;
+    left:10px;
+    width: 50px;
 }
