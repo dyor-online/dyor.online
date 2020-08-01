@@ -6,9 +6,9 @@ h1{
     font-family: "Comic Sans MS";
     font-size: larger;
 }
-.left{
+.center{
     display: block;
-    position:fixed;
-    left:0;
-    width:50;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
