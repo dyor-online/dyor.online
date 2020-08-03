@@ -3,4 +3,24 @@ body {
   margin: 0;
   overflow: hidden;
   max-width: 100%;
+  color:white;
+}
+
+.topleft {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+
+.unlock-content {
+  display: none;
+}
+
+.unlock-content .locked {
+  display: none;
+}
+
+.unlock-content .unlocked {
+  display: none;
+
 }

@@ -4,13 +4,66 @@
   <meta charset="UTF-8">
   <title>$DYOR</title>
   <link rel="stylesheet" href="./styles.css">
+  <script>
+    var unlockProtocolConfig = {
+          locks: {
+            '0x8D159eF208D5b9B3CBe37049dA43BC487266a5BF': { // 0xabc is the address of a lock.
+              name: 'One Month'
+            } // you can add as many locks as you want.
+          },
+          icon: 'https://app.unlock-protocol.com/static/images/svg/default.svg',
+          callToAction: {
+            default: 'This content is locked. Pay with cryptocurrency to access it!',
+            expired: 'This is what is shown when the user had a key which is now expired',
+            pending: 'This is the message shown when the user sent a transaction to purchase a key which has not be confirmed yet',
+            confirmed: 'This is the message shown when the user has a confirmed key',
+            noWallet: 'This is the message shown when the user does not have a crypto wallet which is required...',
+          }
+        }
+    </script>
 </head>
 <body>
+  <!-- unlock -->
+  <script> (function(d, s) {
+    var js = d.createElement(s),
+    sc = d.getElementsByTagName(s)[0];
+    js.src="https://paywall.unlock-protocol.com/static/unlock.latest.min.js";
+    sc.parentNode.insertBefore(js, sc); }(document, "script"));
+  </script>
 
   <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js'></script>
   <script  src="./js/script.js"></script>
+  <script>
+      window.addEventListener('unlockProtocol.status', function(event) {
+        console.log(event);
+        // We hide all .unlock-content elements
+        document.querySelector('.unlock-content').style.display = "none"
+        // We show only the relevant element
+        document.querySelectorAll(`.unlock-content.${event.detail.state}`).forEach((element) => {
+        	element.style.display = "block"
+        })
+      })
 
+      window.addEventListener('unlockProtocol.authenticated', function(event) {
+      	// event.detail.addresss includes the address of the current user, when known
+        console.log(event);
+      })
+
+      window.addEventListener('unlockProtocol.transactionSent', function(event) {
+      	// event.detail.hash includes the hash of the transaction sent
+        console.log(event);
+      })
+  </script>
+
+  <div class="topleft">
+    <h1>Unlock Demo</h1>
+    <p class="unlock-content locked">Unlock Demo is currently locked 🔒 </p>
+    <p class="unlock-content unlocked">Unlock Demo is currently unlocked 🎉</p>
+    <p class="unlock-content locked" onclick="window.unlockProtocol && window.unlockProtocol.loadCheckoutModal()">
+      <button class="button"> Unlock! </button>
+    </p>
+  </div>
 </body>
 </html>
